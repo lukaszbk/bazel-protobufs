@@ -1,0 +1,12 @@
+// Message definitions are borrowed from:
+// https://developers.google.com/protocol-buffers/docs/cpptutorial#defining-your-protocol-format
+
+syntax = "proto2";
+
+package src;
+
+import "src/person.proto";
+
+message AddressBook {
+  repeated Person person = 1;
+}

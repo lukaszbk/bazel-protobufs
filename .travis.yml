@@ -4,10 +4,10 @@ addons:
   apt:
     packages:
       - wget
-      - g++-5
+      - g++-4.9
       # ----------------------------------------------------------------------
       # Package list from http://bazel.io/docs/install.html.
-      # - g++
+      - g++
       - oracle-java8-installer
       - pkg-config
       - zip

@@ -3,8 +3,9 @@
 addons:
   apt:
     packages:
+      - gcc-5
+      - g++-5
       - wget
-      - g++-4.9
       # ----------------------------------------------------------------------
       # Package list from http://bazel.io/docs/install.html.
       - g++

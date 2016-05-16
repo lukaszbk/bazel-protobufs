@@ -39,6 +39,11 @@ install:
   - echo 'test --test_strategy=standalone' >> .bazelrc
   # Enable printing the command lines of failed steps.
   - echo 'build --verbose_failures' >> .bazelrc
+  # Avoid excessive RAM usage.
+  - startup --host_jvm_args=-Xmx2500m >> .bazelrc
+  - startup --host_jvm_args=-Xms2500m >> .bazelrc
+  - startup --batch >> .bazelrc
+  - test --ram_utilization_factor=10 >> .bazelrc
 
 # ----------------------------------------------------------------------------
 # Commands to prepare the project for testing:

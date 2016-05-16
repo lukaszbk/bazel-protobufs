@@ -4,6 +4,7 @@ addons:
   apt:
     packages:
       - wget
+      - g++-5
       # ----------------------------------------------------------------------
       # Package list from http://bazel.io/docs/install.html.
       - g++

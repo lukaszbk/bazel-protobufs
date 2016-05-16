@@ -41,13 +41,15 @@ install:
   # you require sudo in your .travis.yml) this fails to run tests.
   - echo 'build --spawn_strategy=standalone --genrule_strategy=standalone' > .bazelrc
   - echo 'test --test_strategy=standalone' >> .bazelrc
-  # Enable printing the command lines of failed steps.
-  - echo 'build --verbose_failures' >> .bazelrc
   # Avoid excessive RAM usage.
   - echo 'startup --host_jvm_args=-Xmx2500m' >> .bazelrc
   - echo 'startup --host_jvm_args=-Xms2500m' >> .bazelrc
   - echo 'startup --batch >> .bazelrc'
   - echo 'test --ram_utilization_factor=10' >> .bazelrc
+  # Enable printing the command lines of failed steps.
+  - echo 'build --verbose_failures' >> .bazelrc
+  # Pick compiler and glibc versions:
+  - echo 'build --compiler g++-5 --glibc g++-5'
 
 # ----------------------------------------------------------------------------
 # Commands to prepare the project for testing:

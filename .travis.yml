@@ -48,8 +48,8 @@ install:
   - echo 'test --ram_utilization_factor=10' >> .bazelrc
   # Enable printing the command lines of failed steps.
   - echo 'build --verbose_failures' >> .bazelrc
-  # Pick compiler and glibc versions:
-  - echo 'build --compiler g++-5 --glibc g++-5'
+  # Set compiler and glibc versions:
+  - echo 'build --compiler gcc-5 --glibc gcc-5' >> .bazelrc
 
 # ----------------------------------------------------------------------------
 # Commands to prepare the project for testing:

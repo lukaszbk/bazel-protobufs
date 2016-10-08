@@ -1,35 +1,22 @@
+dist: trusty
+
 # ----------------------------------------------------------------------------
 # Install dependencies.
 addons:
   apt:
     packages:
       - wget
-      # ----------------------------------------------------------------------
-      # Package list from http://bazel.io/docs/install.html.
-      - g++
-      - oracle-java8-installer
       - pkg-config
-      - zip
-      - zlib1g-dev
 
-# ----------------------------------------------------------------------------
-# Commands to prepare the system to install prerequisites or dependencies:
-before_install:
-  - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-  - export PROJECT_DIR=$(pwd)
 
 # ----------------------------------------------------------------------------
 # Commands to install dependencies necessary to build / test the project:
 install:
-  - cd $HOME
   # --------------------------------------------------------------------------
   # Install Bazel.
-  - BAZEL_VERSION=0.2.2b
-  - BAZEL_INSTALLER=bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh
-  - wget https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/${BAZEL_INSTALLER}
-  - chmod +x $BAZEL_INSTALLER
-  - ./$BAZEL_INSTALLER --user
-  - export PATH="$PATH:$HOME/bin"
+  - BAZEL_VERSION=0.3.2
+  - wget https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel_${BAZEL_VERSION}-linux-x86_64.deb
+  - sudo dpkg -i bazel_${BAZEL_VERSION}-linux-x86_64.deb
   # --------------------------------------------------------------------------
   # Configure Bazel.
   # Do not use sandboxed execution. Sandboxed execution runs stuff in a
@@ -46,12 +33,6 @@ install:
   - echo 'build --verbose_failures' >> .bazelrc
 
 # ----------------------------------------------------------------------------
-# Commands to prepare the project for testing:
-before_script:
-  - cd $PROJECT_DIR
-
-# ----------------------------------------------------------------------------
 # Commands to run tests:
 script:
    - bazel test //...
-

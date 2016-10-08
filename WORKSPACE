@@ -3,5 +3,5 @@
 git_repository(
     name = "protobuf_repo",
     remote = "https://github.com/google/protobuf.git",
-    tag = "v3.0.0-beta-3-pre-1",
+    tag = "v3.1.0",
 )

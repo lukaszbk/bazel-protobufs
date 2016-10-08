@@ -8,7 +8,6 @@ addons:
       - wget
       - pkg-config
 
-
 # ----------------------------------------------------------------------------
 # Commands to install dependencies necessary to build / test the project:
 install:
@@ -36,3 +35,4 @@ install:
 # Commands to run tests:
 script:
    - bazel test //...
+

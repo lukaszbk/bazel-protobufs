@@ -4,6 +4,15 @@
 load("@protobuf_repo//:protobuf.bzl", "cc_proto_library")
 
 cc_proto_library(
+    name = "person_proto",
+    srcs = [
+        "person.proto",
+    ],
+    default_runtime = "@protobuf_repo//:protobuf",
+    protoc = "@protobuf_repo//:protoc",
+)
+
+cc_proto_library(
     name = "address_book_proto",
     srcs = [
         "address_book.proto",
@@ -23,13 +32,4 @@ cc_test(
     deps = [
         ":address_book_proto",
     ],
-)
-
-cc_proto_library(
-    name = "person_proto",
-    srcs = [
-        "person.proto",
-    ],
-    default_runtime = "@protobuf_repo//:protobuf",
-    protoc = "@protobuf_repo//:protoc",
 )
